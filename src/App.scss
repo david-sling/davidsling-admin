@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@100;200;300;400;500;600;700;800;900");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900");
+
+$primary: #ffa000;
+$blue: #0596ff;
+$red: #e00b0b;
+$green: #59cc12;
+
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+::placeholder {
+  color: #909090;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+  // background: lighten($color: $primary, $amount: 20);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-family: "Nunito";
+  a {
+    color: unset;
+    text-decoration: none;
+  }
+  .button,
+  #button {
+    border: none;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    // justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 5px 4px 13px 0 #0000006c, inset 0 0 0 0 #0000006c;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      box-shadow: 0 0 0 0 #0000006c, inset 5px 4px 13px 0 #0000006c;
+      * {
+        transform: translate(1px, 1px);
+      }
+    }
+
+    &.red {
+      * {
+        color: $red;
+        fill: $red;
+      }
+      &.active {
+        * {
+          color: white;
+          fill: white;
+        }
+        background-color: $red;
+      }
+    }
+    &.blue {
+      * {
+        color: $blue;
+        fill: $blue;
+      }
+      &.active {
+        * {
+          color: white;
+          fill: white;
+        }
+        background-color: $blue;
+      }
+    }
+    &.green {
+      * {
+        color: $green;
+        fill: $green;
+      }
+      &.active {
+        * {
+          color: white;
+          fill: white;
+        }
+        background-color: $green;
+      }
+    }
+
+    * {
+      height: 30px;
+      // margin-right: 20px;
+      transition: 0.2s;
+    }
+    p {
+      height: unset;
+      margin-right: unset;
+      font-size: medium;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+.Login {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url("./assets/LoginBG.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 100px;
+  overflow: hidden;
+  @include phone() {
+    background-image: none;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    @include phone() {
+      margin: none;
+      flex-direction: column;
+      margin-bottom: 50px;
+      align-items: stretch;
+    }
+
+    * {
+      font-family: "Montserrat";
+    }
+    .logo {
+      height: 100px;
+      width: 100px;
+      @include phone() {
+        width: unset;
+        height: unset;
+      }
+
+      img {
+        width: 100%;
+        @include phone() {
+          width: 100vw;
+        }
+      }
+    }
+    .text {
+      margin-left: 50px;
+      @include phone() {
+        margin: 0;
+      }
+      h1 {
+        font-weight: normal;
+        margin-bottom: 10px;
+        font-size: 2.3rem;
+        @include phone() {
+          text-align: center;
+        }
+      }
+      p {
+        font-weight: bolder;
+        color: #909090;
+        letter-spacing: 3px;
+        @include phone() {
+          font-size: small;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include phone() {
+      flex-direction: column;
+    }
+    .button {
+      background-color: white;
+    }
+    .github#button {
+      padding: 20px 20px;
+      min-width: 0;
+      border-radius: 50%;
+      img {
+        margin: 0;
+      }
+      @include phone() {
+        margin: 20px 0;
+      }
+    }
+  }
+}
+
+.User {
+  height: 100vh;
+  display: flex;
+}
+
+.SideBar {
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: $primary;
+  .logo {
+    height: 70px;
+    img {
+      width: 100%;
+    }
+  }
+  .collectionsList,
+  .gallery {
+    flex: 1 1;
+    overflow-y: scroll;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    .add {
+      padding: 20px;
+      display: flex;
+      align-self: center;
+
+      .clickable {
+        padding: 10px;
+        background-color: white;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        box-shadow: 5px 4px 13px 0 #0000006c, inset 0 0 0 0 #0000006c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        &:hover {
+          box-shadow: 0 0 0 0 #0000006c, inset 5px 4px 13px 0 #0000006c;
+        }
+        svg {
+          fill: $primary;
+        }
+      }
+    }
+
+    h4 {
+      margin: 10px 20px;
+      color: lighten($color: $primary, $amount: 40);
+      letter-spacing: 3px;
+      font-size: 1rem;
+    }
+
+    .collection {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $primary;
+      cursor: pointer;
+      transition: 0.2s;
+      svg {
+        overflow: visible;
+        path {
+          transition: 0.2s;
+        }
+      }
+      &:hover {
+        background-color: lighten($color: $primary, $amount: 10);
+        svg path {
+          transform: translateX(20px);
+        }
+      }
+      p {
+        color: white;
+        font-weight: 500;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+      }
+      &.open {
+        background-color: white;
+        p {
+          color: $primary;
+        }
+        svg path {
+          fill: $primary;
+          transform: translateX(50px);
+          opacity: 0;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+  .button {
+    align-self: center;
+    margin: 20px;
+  }
+}
+
+.Main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 40px;
+  h1 {
+    font-size: 4rem;
+    color: $primary;
+    letter-spacing: 3px;
+    font-weight: 500;
+    line-height: 5rem;
+  }
+  p.url {
+    color: #555;
+    font-size: 1.3rem;
+  }
+  .buttons {
+    display: flex;
+    .button {
+      margin-left: 20px;
+    }
+  }
+
+  .Collection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+table#collection {
+  align-self: stretch;
+  box-shadow: 5px 4px 13px 0 #00000033;
+  border-spacing: 0px;
+  thead {
+    background-color: $primary;
+    color: white;
+    letter-spacing: 0.1rem;
+    font-size: 1rem;
+  }
+  tbody {
+    flex-direction: column;
+    align-items: stretch;
+    tr:nth-child(even) {
+      background-color: lighten($color: $primary, $amount: 45);
+    }
+    tr {
+      transition: 0.2s;
+      height: 60px;
+      cursor: pointer;
+      &:hover {
+        // opacity: 0.8;
+        // height: 100px;
+        // outline: 2px solid $primary;
+        z-index: 10;
+        box-shadow: 0px -6px 8px 0 #0000002e;
+      }
+    }
+  }
+  td,
+  th {
+    text-align: center;
+    padding: 25px;
+    ul {
+      display: flex;
+      width: 50px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.Main {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  // overflow: scroll;
+  form#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    .field {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      * {
+        font-size: 1rem;
+      }
+      label {
+        font-size: 1.5rem;
+      }
+      input,
+      textarea {
+        border: none;
+        background-color: #dbdbdb;
+        padding: 10px 20px;
+        resize: vertical;
+        &:focus {
+          outline: none;
+        }
+      }
+      textarea {
+        min-height: 200px;
+      }
+    }
+  }
+}
+
+.NewCollection {
+  form {
+    display: flex;
+    flex-direction: column;
+    label {
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #555;
+    }
+    input#collection {
+      padding: 10px 20px;
+      border: none;
+      border-bottom: 3px solid $primary;
+      font-size: 4rem;
+      color: $primary;
+    }
+    .url {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      p,
+      input {
+        font-size: 1rem;
+      }
+      label {
+        margin-right: 20px;
+      }
+      .p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #dbdbdb;
+        align-self: stretch;
+        padding-left: 20px;
+      }
+      input,
+      p {
+        border: none;
+        background-color: #dbdbdb;
+      }
+      input {
+        padding: 10px 20px 10px 0;
+      }
+    }
+    p.note {
+      font-size: 0.7rem;
+      margin-top: 3px;
+    }
+    .readOnly {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      p {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.EditCollection {
+  table {
+    td {
+      vertical-align: middle;
+      text-align: center;
+      * {
+        vertical-align: middle;
+        display: inline-block;
+      }
+      select {
+        width: 100%;
+        padding: 5px 10px;
+        font-size: 1rem;
+        border: none;
+        background-color: #dbdbdb;
+        margin: 10px 0;
+        &:focus {
+          outline: none;
+        }
+      }
+      &.delete svg {
+        cursor: pointer;
+        &:hover {
+          fill: $red;
+        }
+      }
+      input#radio {
+        cursor: pointer;
+      }
+    }
+    th {
+      text-align: left;
+    }
+    .add {
+      display: flex;
+      form {
+        display: flex;
+      }
+      input {
+        border: none;
+        background-color: #dbdbdb;
+        margin-right: 20px;
+        padding: 10px 20px;
+      }
+      button {
+        border: none;
+        padding: 10px;
+        background-color: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        box-shadow: 5px 4px 13px 0 #0000006c, inset 0 0 0 0 #0000006c;
+        transition: 0.2s;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 0 0 #0000006c, inset 5px 4px 13px 0 #0000006c;
+        }
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+}
+
+.Gallery {
+  width: 100%;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    max-width: 100%;
+    grid-gap: 5px;
+    .grid-item {
+      height: 250px;
+      width: 250px;
+      background-color: black;
+      &:hover {
+        img {
+          opacity: 0.5;
+        }
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      &.newPhoto {
+        cursor: pointer;
+        background-color: white;
+        position: relative;
+        &:hover .design {
+          background-color: $blue;
+          border: 0px dashed white;
+          svg {
+            fill: white;
+            transform: scale(2);
+          }
+        }
+        input {
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+        }
+        .design {
+          position: absolute;
+          width: 90%;
+          height: 90%;
+          border: 5px dashed $primary;
+          top: 0;
+          left: 0;
+          border-radius: 20px;
+          margin: 5%;
+          transition: 1s;
+          svg {
+            fill: $primary;
+            transition: 0.2s;
+            transform: scale(3);
+          }
+        }
+      }
+    }
+  }
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
