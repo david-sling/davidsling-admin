@@ -16,8 +16,11 @@ export default function Login() {
           <img src={logo} alt="Flame Bond logo" />
         </div>
         <div className="text">
-          <h1>Flame Bond</h1>
-          <p>CONTENT MANAGEMENT SYSTEM</p>
+          <h1>David Sling • Admin</h1>
+          <p>
+            BUILT USING{" "}
+            <a href="https://github.com/david-sling/flame-bond">FLAME BOND</a>
+          </p>
         </div>
       </div>
       <div className="buttons">
@@ -26,7 +29,7 @@ export default function Login() {
           <p>Sign in with Google</p>
         </button>
         <div className="github">
-          <a href="https://github.com/david-sling/flame-bond">
+          <a href="https://github.com/david-sling/davidsling-admin">
             <img src={github} alt="GitHub logo" />
           </a>
         </div>
