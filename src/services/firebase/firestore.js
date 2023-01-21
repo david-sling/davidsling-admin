@@ -3,7 +3,8 @@ const db = firebase.firestore();
 
 const get = async (collection, orderBy = "_dateCreated") => {
   var ref = db.collection(collection);
-  if (orderBy) ref = ref.orderBy(orderBy);
+  if (orderBy) ref = ref.orderBy(orderBy, "desc");
+  ref = ref.limit(100);
   const snapshot = await ref.get();
   const data = snapshot.docs.map((doc, idx) => {
     return { ...doc.data(), id: doc.id, idx };

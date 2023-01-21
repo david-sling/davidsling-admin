@@ -8,7 +8,6 @@ export default function Entry({ entry, schema, setEntry }) {
       <form id="grid" action="">
         {entry &&
           schema?.fields?.map((item) => {
-            if (item.key[0] == "_") return null;
             return (
               <div className="field" key={item.key}>
                 <label htmlFor="">{capitalize(item.key)}</label>
@@ -26,6 +25,14 @@ export default function Entry({ entry, schema, setEntry }) {
               </div>
             );
           })}
+        {entry?._dateCreated && (
+          <div className="field">
+            <label htmlFor="">Created Date</label>
+            <p>
+              {new Date(entry?._dateCreated?.seconds * 1000).toDateString()}
+            </p>
+          </div>
+        )}
       </form>
     </section>
   );

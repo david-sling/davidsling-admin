@@ -22,7 +22,7 @@ const getCollections = async (setCollections, setUnauthorized) => {
 };
 
 const getCollection = async (collectionId, setCollection) => {
-  const data = await firestore.get(collectionId);
+  const data = await firestore.get(collectionId, "_dateCreated");
   setCollection(data);
 };
 

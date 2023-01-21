@@ -47,7 +47,7 @@ export default function Collection({ setPage }) {
               <th>idx</th>
               <th>id</th>
               <th>{schema?._master}</th>
-              <th>Published</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -57,16 +57,12 @@ export default function Collection({ setPage }) {
                   key={item.id}
                   onClick={() => setRedirect(`/${collectionId}/${item.id}`)}
                 >
-                  {/* <Link to={`/${collectionId}/${item.id}`}> */}
                   <td>{item.idx + 1}</td>
                   <td>{item.id}</td>
                   <td>{item[schema._master]}</td>
                   <td>
-                    <ul>
-                      <li>{item._published ? "Active" : "Draft"}</li>
-                    </ul>
+                    {new Date(item._dateCreated.seconds * 1000).toDateString()}
                   </td>
-                  {/* </Link> */}
                 </tr>
               ))}
           </tbody>
